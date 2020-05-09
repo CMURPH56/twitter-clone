@@ -36,10 +36,11 @@
       this.newTweet.message = ''
      },
      findHashTag: function(){
-      var message = this.newTweet.message
-      if(message.includes('#')){
-        this.newTweet.hashTags.push("new hashtag")
-      }
+      const message = this.newTweet.message
+      const words = message.split(' ');
+      const hashTags = words.filter( x => x.charAt(0) == '#');
+      this.newTweet.hashTags = hashTags
+      hashTags.forEach(x => console.log(x))
      }
    }
  } 
