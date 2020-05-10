@@ -5,7 +5,9 @@ export const state = () => ({
       user: "cam",
       handle: "@cam",
       message: "Hello World",
-      liked: false 
+      liked: false,
+      comments: [],
+      hashTags: []
     }
   ]
 })
