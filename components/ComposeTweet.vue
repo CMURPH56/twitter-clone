@@ -5,8 +5,10 @@
           v-model="newTweet.message"
           class="inputTweet"
           placeholder="What's on your mind?"
+          maxlength="240"
         required>
       </textarea>
+      <div>{{ charactersLeft }}</div>
       <!-- <input type="file" /> -->
       <button v-on:click="submitTweet">Tweet</button>
     </form>
@@ -26,6 +28,13 @@
         comments: [],
         hashTags: []
        }
+     }
+   },
+   computed: {
+     charactersLeft() {
+       var char = this.newTweet.message.length
+       var limit = 240
+       return `${char} / ${limit}`
      }
    },
    methods:{
