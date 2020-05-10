@@ -32,7 +32,7 @@
    },
    computed: {
      charactersLeft() {
-       var char = this.newTweet.message.length
+       var char = this.newTweet.message.length  
        var limit = 240
        return `${char} / ${limit}`
      }
@@ -45,12 +45,13 @@
       this.$store.commit('Tweets/add', temp)
       this.newTweet.message = ''
      },
-     findHashTag: function(){
+     findHashTag: function() {
       const message = this.newTweet.message
-      const words = message.split(' ');
-      const hashTags = words.filter( x => x.charAt(0) == '#');
+      const words = message.split(' ')
+      const hashTags = words
+            .filter( x => x.charAt(0) == '#')
+            .map( word => word = word.toLowerCase())
       this.newTweet.hashTags = hashTags
-      hashTags.forEach(x => console.log(x))
      },
     //  uploadImage: function(event) {
     //    event.preventDefault();
