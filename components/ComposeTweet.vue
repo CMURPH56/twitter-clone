@@ -1,12 +1,13 @@
 <template>
   <section class="tweetInputModule">
-    <form>
+    <form enctype="multipart/form-data">
       <textarea 
           v-model="newTweet.message"
           class="inputTweet"
           placeholder="What's on your mind?"
         required>
       </textarea>
+      <!-- <input type="file" /> -->
       <button v-on:click="submitTweet">Tweet</button>
     </form>
   </section>
@@ -41,7 +42,10 @@
       const hashTags = words.filter( x => x.charAt(0) == '#');
       this.newTweet.hashTags = hashTags
       hashTags.forEach(x => console.log(x))
-     }
+     },
+    //  uploadImage: function(event) {
+    //    event.preventDefault();
+    //  }
    }
  } 
 </script>

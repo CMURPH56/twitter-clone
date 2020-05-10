@@ -9,6 +9,7 @@
     </div>
     <button v-if='post.liked' v-on:click="toggleTweet">unlike</button>
     <button v-else v-on:click="toggleTweet">like</button>
+    <button v-on:click="deleteTweet"> Delete </button>
 
   </section>
 </template>
@@ -23,6 +24,9 @@ export default {
   methods:{
     toggleTweet: function(event) {
       this.$store.commit('Tweets/updateLike', this.post.id)
+    },
+    deleteTweet: function(event){
+      this.$store.commit('Tweets/deleteTweet', this.post.id)
     }
   }
 }
