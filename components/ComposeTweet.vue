@@ -10,7 +10,7 @@
       </textarea>
       <div>{{ charactersLeft }}</div>
       <!-- <input type="file" /> -->
-      <button class='button' v-on:click="submitTweet">Tweet</button>
+      <button  :disabled="newTweet.message.length == 0" class='button' v-on:click="submitTweet">Tweet</button>
     </form>
   </section>
 </template>

@@ -15,6 +15,7 @@
       </div>
     </div>
     <div class="column column-three">
+      <img class="twitter-image" src="~/assets/twitter.png">
     </div>
   </div>
 </template>
@@ -68,6 +69,12 @@ export default {
   border-left: 1px solid rgb(230, 236, 240);
   border-right: 1px solid rgb(230, 236, 240);
   order: 2;
+}
+.twitter-image {
+  margin-top: 5px;
+  margin-left: 33%;
+  height: 30px;
+  width: 30px;
 }
 </style>
 

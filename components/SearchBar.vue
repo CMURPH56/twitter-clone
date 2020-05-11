@@ -1,8 +1,8 @@
 <template>
   <section>
     <form>
-      <input class="searchInput" v-model="searchTerm" placeholder="Search For Hashtags" required>
-      <button v-on:click="search">SEARCH</button>
+      <input class="searchInput" v-model="searchTerm" placeholder="Search Twitter" required>
+      <button  v-on:click="search">SEARCH</button>
     </form>
     <div v-for="post in tweetResults" :key="post.tweet">
       <Tweet
