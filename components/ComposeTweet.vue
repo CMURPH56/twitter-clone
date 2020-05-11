@@ -10,7 +10,7 @@
       </textarea>
       <div>{{ charactersLeft }}</div>
       <!-- <input type="file" /> -->
-      <button v-on:click="submitTweet">Tweet</button>
+      <button class='button' v-on:click="submitTweet">Tweet</button>
     </form>
   </section>
 </template>
@@ -71,5 +71,13 @@
   height: 10vh;
   resize: none;
   border: none;
+}
+.button{
+  background-color: rgb(29, 161, 242);
+  padding: 3px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
 }
 </style>

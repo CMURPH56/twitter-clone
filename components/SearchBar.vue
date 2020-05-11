@@ -2,7 +2,6 @@
   <section>
     <form>
       <input class="searchInput" v-model="searchTerm" placeholder="Search For Hashtags" required>
-      <p>Searching For: {{ searchTerm }}</p> 
       <button v-on:click="search">SEARCH</button>
     </form>
     <div v-for="post in tweetResults" :key="post.tweet">
@@ -42,7 +41,7 @@ export default {
   background-color: rgb(230, 236, 240);
   border-radius: 15px;
   padding: 10px;
-  width: 466px;
+  width: 75%;
   line-height: normal;
   font-weight: 400;
 }
