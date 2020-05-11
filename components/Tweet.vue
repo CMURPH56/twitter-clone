@@ -1,8 +1,8 @@
 <template>
   <section :v-bind="post.id" class="tweet">
     <div class="name">
-      {{post.user}}
-      {{post.handle}}
+      <span class='post-user'>{{post.user}}</span>
+      <span class='post-handle'>{{post.handle}}</span>
     </div>
     <div class="message">
       {{post.message}}
@@ -34,8 +34,15 @@ export default {
 </script>
 
 <style>
-.tweet{
-  border: 1px solid grey;
+.tweet {
+  border-top: 1px solid rgb(230, 236, 240);
+  border-bottom: 1px solid rgb(230, 236, 240);
+}
+.post-user{
+  font-weight: bold;
+}
+.post-handle{
+  color: grey;
 }
 
 </style>

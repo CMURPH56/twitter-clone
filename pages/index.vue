@@ -4,12 +4,14 @@
       <SearchBar />
     </div>
     <div class="column column-two">
-      <h2> HOME </h2>
+      <h2> Home </h2>
       <ComposeTweet />
-      <div v-for="post in storedTweets" :key="post.tweet">
-        <Tweet 
-          v-bind:post="post"
-        />
+      <div class="tweets" >
+        <div v-for="post in storedTweets" :key="post.tweet">
+          <Tweet 
+            v-bind:post="post"
+          />
+        </div>
       </div>
     </div>
     <div class="column column-three">
@@ -44,6 +46,10 @@ export default {
 </script>
 
 <style>
+.tweets{
+  border-top: 0.5em solid rgb(230, 236, 240);
+  border-bottom: 0.5em solid rgb(230, 236, 240);
+}
 .container {
   display: flex;
 }
@@ -54,9 +60,13 @@ export default {
   order: 3;
 }
 .column-two {
+  border-left: 1px solid rgb(230, 236, 240);
+  border-right: 1px solid rgb(230, 236, 240);
   order: 1  ;
 }
 .column-tree {
+  border-left: 1px solid rgb(230, 236, 240);
+  border-right: 1px solid rgb(230, 236, 240);
   order: 2;
 }
 </style>

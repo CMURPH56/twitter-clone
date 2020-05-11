@@ -52,7 +52,7 @@
             .filter( x => x.charAt(0) == '#')
             .map( word => word = word.toLowerCase())
       this.newTweet.hashTags = hashTags
-     },
+     }
     //  uploadImage: function(event) {
     //    event.preventDefault();
     //  }
@@ -62,12 +62,14 @@
 
 <style>
 .tweetInputModule{
-  height: 15vh;
+  height: 17vh;
   width: 100%;
+  border: 1px solid rgb(230, 236, 240);
 }
 .inputTweet{
   width: 100%;
   height: 10vh;
   resize: none;
+  border: none;
 }
 </style>
