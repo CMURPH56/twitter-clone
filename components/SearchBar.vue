@@ -1,8 +1,7 @@
 <template>
   <section>
     <form>
-      <input class="searchInput" v-model="searchTerm" placeholder="Search Twitter" required>
-      <button  v-on:click="search">SEARCH</button>
+      <input v-on:keydown.enter.prevent='search' class="searchInput" v-model="searchTerm" placeholder="Search Twitter" required>
     </form>
     <div v-for="post in tweetResults" :key="post.tweet">
       <Tweet

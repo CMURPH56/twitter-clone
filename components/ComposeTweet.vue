@@ -8,9 +8,15 @@
           maxlength="240"
         required>
       </textarea>
-      <div>{{ charactersLeft }}</div>
-      <!-- <input type="file" /> -->
-      <button  :disabled="newTweet.message.length == 0" class='button' v-on:click="submitTweet">Tweet</button>
+      <div>
+        {{ charactersLeft }}
+      </div>
+      <button  
+        :disabled="newTweet.message.length == 0" 
+        class='button' 
+        v-on:click="submitTweet"
+        > Tweet
+      </button>
     </form>
   </section>
 </template>
@@ -53,9 +59,6 @@
             .map( word => word = word.toLowerCase())
       this.newTweet.hashTags = hashTags
      }
-    //  uploadImage: function(event) {
-    //    event.preventDefault();
-    //  }
    }
  } 
 </script>
