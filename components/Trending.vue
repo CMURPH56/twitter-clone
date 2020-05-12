@@ -23,8 +23,13 @@ export default {
   },
   computed: {
     trendingHashtags () {
-      let hashtags = ['#walnut']
-
+      let hashtags = []
+      var tweets = this.$store.state.Tweets.posts
+      for(var i = 0; i < tweets.length; i++){
+        for(var j = 0; j < tweets[i]['hashTags'].length; j++){
+          hashtags.push(tweets[i]['hashTags'][j])
+        }
+      }
       return hashtags
     }  
   }

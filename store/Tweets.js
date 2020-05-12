@@ -9,7 +9,27 @@ export const state = () => ({
       comments: [],
       hashTags: [],
       deletedMessage: ''
-    }
+    },
+    {
+      id: '1001',
+      user: "cam",
+      handle: "@cam",
+      message: "#Hello World",
+      liked: false,
+      comments: [],
+      hashTags: ['#Hello'],
+      deletedMessage: ''
+    },
+    {
+      id: '1002',
+      user: "cam",
+      handle: "@cam",
+      message: "#Hello World",
+      liked: false,
+      comments: [],
+      hashTags: ['#Hello'],
+      deletedMessage: ''
+    },
   ]
 })
 
