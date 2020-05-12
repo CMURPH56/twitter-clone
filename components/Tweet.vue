@@ -10,6 +10,7 @@
     <button v-if='post.liked' v-on:click="toggleTweet">unlike</button>
     <button v-else v-on:click="toggleTweet">like</button>
     <button v-on:click="deleteTweet"> Delete </button>
+    <button> Comment </button>
 
   </section>
 </template>

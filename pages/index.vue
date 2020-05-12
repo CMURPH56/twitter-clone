@@ -2,6 +2,7 @@
   <div class="container">
     <div class="column column-one">
       <SearchBar />
+      <Trending />
     </div>
     <div class="column column-two">
       <h2> Home </h2>
@@ -25,6 +26,7 @@ import Logo from '~/components/Logo.vue'
 import SearchBar from '~/components/SearchBar.vue'
 import Tweet from '~/components/Tweet.vue'
 import ComposeTweet from '~/components/ComposeTweet.vue'
+import Trending from '~/components/Trending.vue'
 import { mapState } from 'vuex'
 
 export default {
@@ -41,7 +43,8 @@ export default {
     Logo,
     SearchBar,
     Tweet,
-    ComposeTweet
+    ComposeTweet,
+    Trending
   }
 }
 </script>
