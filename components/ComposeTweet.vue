@@ -56,7 +56,7 @@
       const words = message.split(' ')
       const hashTags = words
             .filter( x => x.charAt(0) == '#')
-            .map( word => word = word.toLowerCase())
+            .map( word => word.toLowerCase())
       this.newTweet.hashTags = hashTags
      }
    }

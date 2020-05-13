@@ -17,7 +17,7 @@ export const state = () => ({
       message: "#Hello World",
       liked: false,
       comments: [],
-      hashTags: ['#Hello'],
+      hashTags: ['#hello'],
       deletedMessage: ''
     },
     {
@@ -27,7 +27,7 @@ export const state = () => ({
       message: "#Hello World",
       liked: false,
       comments: [],
-      hashTags: ['#Hello'],
+      hashTags: ['#hello'],
       deletedMessage: ''
     },
   ]

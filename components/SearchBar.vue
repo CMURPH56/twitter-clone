@@ -29,7 +29,8 @@ export default {
   methods: {
     search: function(event){
       event.preventDefault();
-      var hashedSearch = `#${this.searchTerm}`
+      let searchTermLower = this.searchTerm.toLowerCase()
+      var hashedSearch = `#${searchTermLower}`
       var results = this.$store.state.Tweets.posts
         .filter(x => x.hashTags.includes(hashedSearch));
       this.tweetResults = results
