@@ -13,6 +13,9 @@
             v-bind:post="post"
           />
         </div>
+        <div v-if="message">
+          {{message}}
+        </div>
       </div>
     </div>
     <div class="column column-three">
@@ -28,13 +31,20 @@ import Tweet from '~/components/Tweet.vue'
 import ComposeTweet from '~/components/ComposeTweet.vue'
 import Trending from '~/components/Trending.vue'
 import { mapState } from 'vuex'
+import axios from 'axios'
 
 export default {
   data: function (){
     return {
     }
   },
-  computed: {
+  // asyncData({params, error}){
+  //   return axios.get('http://localhost:3000/api/testing').then((res) => {
+  //     return {message : res.data}
+  //   })
+
+  // },
+  // computed: {
     storedTweets () {
       return this.$store.state.Tweets.posts
     }  
