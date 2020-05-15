@@ -13,7 +13,10 @@
             v-bind:post="post"
           />
         </div>
-      </div>
+        </div>
+        <div>
+          {{test}}
+        </div>
     </div>
     <div class="column column-three">
       <img class="twitter-image" src="~/assets/twitter.png">
@@ -33,7 +36,13 @@ import axios from 'axios'
 export default {
   data: function (){
     return {
+      test: 'test value'
     }
+  },
+  mounted () {
+    axios
+      .get('http://localhost:3000/api/test')
+      .then(response => ( this.test = response.data.message))
   },
   computed: {
     storedTweets () {

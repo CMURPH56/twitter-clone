@@ -19,7 +19,7 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
- 
+  
   app.get('/api/test', (req, res, next) => {
     res.send({message : 'Welcome Home'});
   });
@@ -27,6 +27,7 @@ async function start () {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
+  console.log(nuxt.render)
 
   // Listen the server
   app.listen(port, host)
