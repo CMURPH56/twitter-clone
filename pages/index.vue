@@ -13,9 +13,6 @@
             v-bind:post="post"
           />
         </div>
-        <div v-if="message">
-          {{message}}
-        </div>
       </div>
     </div>
     <div class="column column-three">
@@ -38,13 +35,7 @@ export default {
     return {
     }
   },
-  // asyncData({params, error}){
-  //   return axios.get('http://localhost:3000/api/testing').then((res) => {
-  //     return {message : res.data}
-  //   })
-
-  // },
-  // computed: {
+  computed: {
     storedTweets () {
       return this.$store.state.Tweets.posts
     }  
