@@ -9,14 +9,14 @@
       <ComposeTweet />
       <div class="tweets" >
         <div v-for="post in storedTweets" :key="post.tweet">
-          <Tweet 
+          <Tweet
             v-bind:post="post"
           />
         </div>
         </div>
-        <div>
+        <!-- <div>
           {{test}}
-        </div>
+        </div> -->
     </div>
     <div class="column column-three">
       <img class="twitter-image" src="~/assets/twitter.png">
@@ -47,7 +47,7 @@ export default {
   computed: {
     storedTweets () {
       return this.$store.state.Tweets.posts
-    }  
+    }
   },
   components: {
     Logo,
