@@ -14,9 +14,6 @@
           />
         </div>
         </div>
-        <!-- <div>
-          {{test}}
-        </div> -->
     </div>
     <div class="column column-three">
       <img class="twitter-image" src="~/assets/twitter.png">
