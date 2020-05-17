@@ -2,6 +2,7 @@ const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
+const tweetsRouter = require('../server/routes/tweet.router')
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -20,29 +21,8 @@ async function start () {
     await builder.build()
   }
   
+  app.use('/api/tweets/', tweetsRouter)
 
-  // CRUD -- Create Read Update Destroy
-  
-  // To post is to create
-  app.post('/api/test', (req, res) => {
-    console.log('test post')
-  })
-
-  // To get is to read 
-  app.get('/api/test', (req, res) => {
-    res.send({message : 'Welcome Home'});
-  });
-
-  // put and post are the same thing kinda 
-  
-  // To push is to update
-  app.push('/api/test', (req,res) => {
-    console.log('test push')
-  })
-
-  app.delete('/api/test/', (req, res) => {
-    console.log('test delete')
-  })
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
