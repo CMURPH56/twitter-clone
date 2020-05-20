@@ -1,7 +1,8 @@
 <template>
   <section class="tweetInputModule">
+    <h1> {{newTweet.location }}</h1>
     <form enctype="multipart/form-data">
-      <textarea 
+      <textarea
           v-model="newTweet.message"
           class="inputTweet"
           placeholder="What's on your mind?"
@@ -11,9 +12,9 @@
       <div>
         {{ charactersLeft }}
       </div>
-      <button  
-        :disabled="newTweet.message.length == 0" 
-        class='button' 
+      <button
+        :disabled="newTweet.message.length == 0"
+        class='button'
         v-on:click="submitTweet"
         > Tweet
       </button>
@@ -32,18 +33,42 @@
         message: '',
         liked: false,
         comments: [],
-        hashTags: []
+        hashTags: [],
+        location: 'test'
        }
      }
    },
+   mounted(){
+     this.getLocation();
+   },
    computed: {
      charactersLeft() {
-       var char = this.newTweet.message.length  
+       var char = this.newTweet.message.length
        var limit = 240
        return `${char} / ${limit}`
      }
    },
    methods:{
+     getLocation: function(){
+       if(!navigator.geolocation){
+         this.newTweet.location = 'unknown'
+       }
+       else{
+        navigator.geolocation.getCurrentPosition(this.success, this.error);
+       }
+
+     },
+
+      error: function(position) {
+        this.newTweet.location = position.message
+        console.log(JSON.parse(position))
+        // this.newTweet.location = 'unable to retrieve location  '
+      },
+
+      success: function(position) {
+        this.newTweet.location = 'it worked'
+      },
+
      submitTweet: function(event) {
       event.preventDefault();
       this.findHashTag();
@@ -60,7 +85,7 @@
       this.newTweet.hashTags = hashTags
      }
    }
- } 
+ }
 </script>
 
 <style>

@@ -36,11 +36,6 @@ export default {
       test: 'test value'
     }
   },
-  mounted () {
-    axios
-      .get('http://localhost:3000/api/test')
-      .then(response => ( this.test = response.data.message))
-  },
   computed: {
     storedTweets () {
       return this.$store.state.Tweets.posts
