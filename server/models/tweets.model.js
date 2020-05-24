@@ -1,5 +1,4 @@
-import mongoose from 'mongoose'
-import { introspectionFromSchema } from 'graphql'
+var mongoose = require('mongoose')
 
 const tweetSchema = new mongoose.Schema({
   id: Number,
@@ -10,3 +9,7 @@ const tweetSchema = new mongoose.Schema({
   comments: [String],
   hashTags: [String]
 })
+
+var tweetModel = mongoose.model('TweetSchema', tweetSchema)
+
+module.exports =  tweetModel
