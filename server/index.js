@@ -5,6 +5,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const tweetsRouter = require('../server/routes/tweet.router')
 const dotenv = require('dotenv')
+const bodyParser = require('body-parser')
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -25,10 +26,9 @@ async function start () {
   dotenv.config()
 
   // express work 
-
+  app.use(express.json());
   app.use('/api/tweets/', tweetsRouter)
 
-  console.log(`test ${process.env.PORT}`)
 
   MongoClient
     .connect(`mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@ds115396.mlab.com:15396/twitter-clone`,

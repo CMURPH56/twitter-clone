@@ -11,6 +11,7 @@
       <div>
         {{ charactersLeft }}
       </div>
+      <h1> {{tweetStatus}}</h1>
       <button
         :disabled="newTweet.message.length == 0"
         class='button'
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+ import axios from 'axios'
+
  export default {
    data: function () {
      return {
@@ -33,7 +36,8 @@
         liked: false,
         comments: [],
         hashTags: [],
-       }
+       },
+       tweetStatus: ''
      }
    },
    computed: {
@@ -49,6 +53,7 @@
       this.findHashTag();
       var temp = JSON.parse(JSON.stringify(this.newTweet));
       this.$store.commit('Tweets/add', temp)
+      this.saveTweet(temp)
       this.newTweet.message = ''
      },
      findHashTag: function() {
@@ -58,6 +63,12 @@
             .filter( x => x.charAt(0) == '#')
             .map( word => word.toLowerCase())
       this.newTweet.hashTags = hashTags
+     },
+     saveTweet: function(tweet){
+       console.log(tweet)
+       axios
+        .post('http://localhost:8000/api/tweets', tweet)
+        .then(response => (this.tweetStatus = response.data.message))
      }
    }
  }

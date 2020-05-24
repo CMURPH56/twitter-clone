@@ -8,7 +8,12 @@ const controller = (req, res) => {
 
 tweetsRouter.route('/')
   .get(controller)
-  .post(controller)
+  .post((req, res) => {
+    const tweet = new tweetModel(req.body)
+    tweet.save()
+    console.log(tweet);
+    res.send({message: 'worked'})
+  })
 
 tweetsRouter.route('/:id')
   .get(controller)
