@@ -1,6 +1,5 @@
 <template>
   <section class="tweetInputModule">
-    <h1> {{newTweet.location }}</h1>
     <form enctype="multipart/form-data">
       <textarea
           v-model="newTweet.message"
@@ -34,12 +33,8 @@
         liked: false,
         comments: [],
         hashTags: [],
-        location: 'test'
        }
      }
-   },
-   mounted(){
-     this.getLocation();
    },
    computed: {
      charactersLeft() {
@@ -49,26 +44,6 @@
      }
    },
    methods:{
-     getLocation: function(){
-       if(!navigator.geolocation){
-         this.newTweet.location = 'unknown'
-       }
-       else{
-        navigator.geolocation.getCurrentPosition(this.success, this.error);
-       }
-
-     },
-
-      error: function(position) {
-        this.newTweet.location = position.message
-        console.log(JSON.parse(position))
-        // this.newTweet.location = 'unable to retrieve location  '
-      },
-
-      success: function(position) {
-        this.newTweet.location = 'it worked'
-      },
-
      submitTweet: function(event) {
       event.preventDefault();
       this.findHashTag();
