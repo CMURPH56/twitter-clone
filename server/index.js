@@ -25,11 +25,7 @@ async function start () {
   }
   dotenv.config()
 
-  // express work 
-  app.use(express.json());
-  app.use('/api/tweets/', tweetsRouter)
-
-
+  
   MongoClient
     .connect(`mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@ds115396.mlab.com:15396/twitter-clone`,
       function(err, client) {
@@ -42,6 +38,9 @@ async function start () {
       }
     )
 
+    // express work 
+  app.use(express.json());
+  app.use('/api/tweets/', tweetsRouter)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
