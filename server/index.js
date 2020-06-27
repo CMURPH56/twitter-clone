@@ -27,7 +27,7 @@ async function start () {
 
   
   MongoClient
-    .connect(`mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@ds115396.mlab.com:15396/twitter-clone`,
+    .connect(process.env.MONGO_URI,
       function(err, client) {
         if (err) throw err
         var db = client.db('twitter-clone')
