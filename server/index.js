@@ -3,7 +3,7 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const tweetsRouter = require('../server/routes/tweet.router')
+const tweetsRouter = require('./tweet/tweet.router')
 const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 
@@ -25,22 +25,19 @@ async function start () {
   }
   dotenv.config()
 
-  
-  MongoClient
-    .connect(process.env.MONGO_URI,
-      function(err, client) {
-        if (err) throw err
-        var db = client.db('twitter-clone')
-        db.collection('tweets').find().toArray(function (err, result) {
-          if(err) throw err
-          console.log(result)
-        })
-      }
-    )
-
-    // express work 
-  app.use(express.json());
+  // var db;
+  // MongoClient
+  //   .connect(process.env.MONGO_URI,
+  //     function(err, client) {
+  //       if (err) throw err
+  //       db = client.db('twitter-clone')
+  //       console.log('Connected to Database')
+  //     })
+    
+  // express work 
   app.use('/api/tweets/', tweetsRouter)
+  app.use(express.json());
+
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
