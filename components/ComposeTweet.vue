@@ -65,7 +65,6 @@
       this.newTweet.hashTags = hashTags
      },
      saveTweet: function(tweet){
-       console.log(tweet)
        axios
         .post('http://localhost:8000/api/tweets', tweet)
         .then(response => (this.tweetStatus = response.data.message))

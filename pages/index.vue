@@ -31,14 +31,26 @@ import { mapState } from 'vuex'
 import axios from 'axios'
 
 export default {
-  data: function (){
-    return {
-      test: 'test value'
+
+  mounted() {
+    this.getTweets()
+  },
+  methods: {
+    getTweets() {
+      const answer =  axios
+        .get('http://localhost:8000/api/tweets')
+      return answer
     }
   },
   computed: {
     storedTweets () {
-      return this.$store.state.Tweets.posts
+      var result = {}
+      var promise = Promise.resolve(this.getTweets())
+      promise.then(function(val) {
+        result = val.data
+        console.log(result)
+        return result
+      })
     }
   },
   components: {
