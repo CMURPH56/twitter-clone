@@ -11,7 +11,6 @@
       <div>
         {{ charactersLeft }}
       </div>
-      <h1> {{tweetStatus}}</h1>
       <button
         :disabled="newTweet.message.length == 0"
         class='button'

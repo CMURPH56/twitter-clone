@@ -13,7 +13,7 @@
             v-bind:post="post"
           />
         </div>
-        </div>
+      </div>
     </div>
     <div class="column column-three">
       <img class="twitter-image" src="~/assets/twitter.png">
@@ -32,25 +32,26 @@ import axios from 'axios'
 
 export default {
 
-  mounted() {
-    this.getTweets()
+  data: function () {
+    return {
+      result: {}
+    }
+  },
+
+mounted() {
+    this.getTweets();
+  },
+
+  computed : {
+    storedTweets() {
+      return this.result
+    }
   },
   methods: {
     getTweets() {
-      const answer =  axios
+      axios
         .get('http://localhost:8000/api/tweets')
-      return answer
-    }
-  },
-  computed: {
-    storedTweets () {
-      var result = {}
-      var promise = Promise.resolve(this.getTweets())
-      promise.then(function(val) {
-        result = val.data
-        console.log(result)
-        return result
-      })
+        .then(response => (this.result = response.data))
     }
   },
   components: {
