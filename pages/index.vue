@@ -28,30 +28,17 @@ import Tweet from '~/components/Tweet.vue'
 import ComposeTweet from '~/components/ComposeTweet.vue'
 import Trending from '~/components/Trending.vue'
 import { mapState } from 'vuex'
-import axios from 'axios'
+
 
 export default {
-
-  data: function () {
-    return {
-      result: {}
-    }
-  },
-
-mounted() {
-    this.getTweets();
-  },
+  created() {
+      this.$store.dispatch('Tweets/get_results')
+    },
 
   computed : {
     storedTweets() {
-      return this.result
-    }
-  },
-  methods: {
-    getTweets() {
-      axios
-        .get('http://localhost:8000/api/tweets')
-        .then(response => (this.result = response.data))
+      console.log(this.$store.state.Tweets.results)
+      return this.$store.state.Tweets.results
     }
   },
   components: {
