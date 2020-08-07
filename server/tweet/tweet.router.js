@@ -11,6 +11,7 @@ tweetsRouter.route('/')
     const connection = mongoose.connection
     connection.once("open", function(){
       const newTweet = new tweetModel(req.body)
+
       try {
         connection.db.collection('tweets').insertOne(newTweet)
         res.status(201).json(newTweet);
@@ -36,8 +37,20 @@ tweetsRouter.route('/')
   })
 
 tweetsRouter.route('/:id')
-  .put()
-  .delete()
+  .delete((req, res) => {
+    mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true})
+    const connection = mongoose.connection
+    connection.once("open", function() {
+      try {
+        connection.db.collection('tweets').deleteOne({"id": parseInt(req.params.id)})
+        .then(result=> {
+          console.log(`deleted ${result.deletedCount} item.`)
+        })
+        .catch(err => console.error(`Delete failed with error: ${err}`))
+      } catch (err) {
+        console.log(err.message)
+      }
+    })
+  })
 
-  
 module.exports = tweetsRouter

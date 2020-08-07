@@ -54,6 +54,7 @@
       this.$store.commit('Tweets/add', temp)
       this.saveTweet(temp)
       this.newTweet.message = ''
+      this.$store.dispatch('Tweets/get_results')
      },
      findHashTag: function() {
       const message = this.newTweet.message

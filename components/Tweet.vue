@@ -27,7 +27,7 @@ export default {
       this.$store.commit('Tweets/updateLike', this.post.id)
     },
     deleteTweet: function(event){
-      this.$store.commit('Tweets/deleteTweet', this.post.id)
+      this.$store.dispatch('Tweets/delete_tweet', this.post.id)
     }
   }
 }

@@ -37,7 +37,6 @@ export default {
 
   computed : {
     storedTweets() {
-      console.log(this.$store.state.Tweets.results)
       return this.$store.state.Tweets.results
     }
   },
