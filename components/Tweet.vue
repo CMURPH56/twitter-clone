@@ -28,6 +28,7 @@ export default {
     },
     deleteTweet: function(event){
       this.$store.dispatch('Tweets/delete_tweet', this.post.id)
+      this.$store.dispatch('Tweets/get_results')
     }
   }
 }

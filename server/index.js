@@ -4,10 +4,9 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const tweetsRouter = require('./tweet/tweet.router')
 const dotenv = require('dotenv')
-const mongoose = require('mongoose')
 
 const tweetModel = require('./tweet/tweets.model.js')
-
+  
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
