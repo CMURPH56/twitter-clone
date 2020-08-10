@@ -11,7 +11,7 @@ tweetsRouter.route('/')
     const connection = mongoose.connection
     connection.once("open", function(){
       const newTweet = new tweetModel(req.body)
-
+      console.log(newTweet)
       try {
         connection.db.collection('tweets').insertOne(newTweet)
         res.status(201).json(newTweet);

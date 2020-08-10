@@ -7,7 +7,8 @@ const tweetSchema = new mongoose.Schema({
   message: String,
   liked: Boolean,
   comments: [String],
-  hashTags: [String]
+  hashTags: [String],
+  dateTime: [String]   
 })
 
 var tweetModel = mongoose.model('TweetSchema', tweetSchema)

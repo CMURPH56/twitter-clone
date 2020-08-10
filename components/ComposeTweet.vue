@@ -35,11 +35,17 @@
         liked: false,
         comments: [],
         hashTags: [],
+        dateTime: Date.now()
        },
        tweetStatus: ''
      }
    },
    computed: {
+
+     getFormattedDate() {
+        var year = Date.getFullYear()
+     },
+
      charactersLeft() {
        var char = this.newTweet.message.length
        var limit = 240
@@ -51,7 +57,6 @@
       event.preventDefault();
       this.findHashTag();
       var temp = JSON.parse(JSON.stringify(this.newTweet));
-      this.$store.commit('Tweets/add', temp)
       this.saveTweet(temp)
       this.newTweet.message = ''
       this.$store.dispatch('Tweets/get_results')

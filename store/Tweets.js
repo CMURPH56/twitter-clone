@@ -7,7 +7,9 @@ export const state = () => ({
 
 export const mutations = {
   set_results(state, results) {
-    state.results =  results
+    state.results =  results.sort( function(a,b){
+      return b.dateTime - a.dateTime;
+    })
   },
   delete_tweet(){
     delete_tweet();
@@ -25,6 +27,5 @@ export const actions = {
   delete_tweet({commit}, id){
     axios
       .delete(`http://localhost:8000/api/tweets/${id}`)
-
   }
 }
