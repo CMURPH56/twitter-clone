@@ -24,7 +24,7 @@ export default {
   props: ['post'],
   methods:{
     toggleTweet: function(event) {
-      this.$store.commit('Tweets/updateLike', this.post.id)
+      this.$store.dispatch('Tweets/update_like', this.post.id)
     },
     deleteTweet: function(event){
       this.$store.dispatch('Tweets/delete_tweet', this.post.id)

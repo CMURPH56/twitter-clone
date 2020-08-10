@@ -11,9 +11,6 @@ export const mutations = {
       return b.dateTime - a.dateTime;
     })
   },
-  delete_tweet(){
-    delete_tweet();
-  }
 }
 
 export const actions = {
@@ -27,5 +24,10 @@ export const actions = {
   delete_tweet({commit}, id){
     axios
       .delete(`http://localhost:8000/api/tweets/${id}`)
+  },
+  update_like({commit}, id) {
+    axios
+      .put(`http://localhost:8000/api/tweets/${id}`)
   }
+
 }

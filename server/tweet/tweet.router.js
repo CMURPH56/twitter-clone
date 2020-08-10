@@ -52,5 +52,8 @@ tweetsRouter.route('/:id')
       }
     })
   })
+  .put((req, res) => {
+    console.log(req)
+  })
 
 module.exports = tweetsRouter
