@@ -19,7 +19,8 @@
     "graphql": "^15.0.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.15",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "passport": "^0.4.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

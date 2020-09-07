@@ -1,28 +1,15 @@
 <template>
   <section>
-    <button 
-      id="show-modal" @click="showModal = true"> Sign Up</button>
-    <button> Log In</button>
-
-    <CreateAccountModal v-if="showModal" @close="showModal = false"/>
-
+    <Login />
   </section>
 </template>
-
 <script>
+  import Login from '~/components/Login.vue'
+  export default {
 
-import CreateAccountModal from '~/components/CreateAccountModal.vue'
-
-export default {
-
-  data: function() {
-    return {
-      showModal: false
+    components: {
+      Login
     }
-  },
-  components : {
-    CreateAccountModal,
   }
-}
 
 </script>

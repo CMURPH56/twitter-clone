@@ -1,7 +1,6 @@
 const express = require('express')
 const tweetsRouter = express.Router();
 const tweetModel = require('./tweets.model.js')
-const connect = require('../utils/db')
 const mongoose = require('mongoose')
 
 // Twitter Post Method
