@@ -31,7 +31,8 @@
               console.log(errors)
             })
         }
-        login()
+        // login()
+        this.$router.push('/home')
       }
     }
   }
