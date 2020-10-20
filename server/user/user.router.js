@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 userRouter.route('/')
   .post((req, res) => {
-    console.log('testing')
+    res.send({'message': 'it worked'})
   })
 
   module.exports = userRouter

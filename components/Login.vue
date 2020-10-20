@@ -1,39 +1,39 @@
 <template>
   <section>
-    <div>
-      <form v-on:submit="login">
-        <input type="text" name="username" placeholder="UserName">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login" />
+      <h2> LOGIN </h2>
+      <form action="#" @submit.prevent="login">
+          <div class="form-control">
+            <label for="email"> UserName/Email </label>
+            <input type="email" name="username" id="username" class="login-input" v-model="username">
+          </div>
+          <div class="form-control mb-more">
+            <label for="password"> Password </label>
+            <input type="password" name="password" id="password" class="login-input" v-model="password">
+          </div>
+          <div class="form-control">
+            <button type="submit" class="btn-submit">Login</button>
+          </div>
       </form>
-    </div>
 </section>
 </template>
 <script>
   import axios from "axios"
   export default {
-    methods: {
-      login: function(event) {
-        event.preventDefault();
-        let username = "username"
-        let password = "password"
-        let login = () => {
-          let data = {
-            username: username,
-            password: password
-          }
-          console.log(data)
-          axios.post("http://localhost:8000/api/login", data)
-            .then((response)=> {
-              console.log(response)
-            })
-            .catch((errors) => {
-              console.log(errors)
-            })
+    name: 'login',
+            
+      data() {
+        return {
+          username: '',
+          password: ''
         }
-        // login()
-        this.$router.push('/home')
+      },
+      methods: {
+        login() {
+          this.$store.dispatch('Users/retrieveToken', {
+            username: this.username,
+            password: this.password
+          })
+        }
       }
-    }
   }
 </script>
