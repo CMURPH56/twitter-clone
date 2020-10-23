@@ -3,7 +3,7 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const tweetsRouter = require('./tweet/tweet.router')
-const userRouter = require('./user/user.router')
+const authRouter = require('./auth/auth.router.js')
 const dotenv = require('dotenv')
 
 const tweetModel = require('./tweet/tweets.model.js')
@@ -27,7 +27,6 @@ async function start () {
   app.use(express.json())
 
   app.use('/api/tweets/', tweetsRouter)
-  app.use('/api/login/', userRouter)
   
   // express work 
   app.use(express.json());
