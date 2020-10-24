@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const passport = require('passport')
 const router = require('express').Router()
-const auth = require('../auth/auth.router')
+const auth = require('../auth/auth')
 const Users = mongoose.model('user.model')
 
 
