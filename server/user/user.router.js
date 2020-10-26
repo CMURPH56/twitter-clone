@@ -2,11 +2,19 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const router = require('express').Router()
 const auth = require('../auth/auth')
-const Users = mongoose.model('user.model')
+const userModel = require('./user.model')
 
 
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
+
+  if(!user){
+    return res.status(422).json({
+      errors: {
+        empty: ' nothing here ',
+      },
+    });
+  }
 
   if(!user.email){
     return res.status(422).json({
@@ -24,12 +32,22 @@ router.post('/', auth.optional, (req, res, next) => {
     })
   }
 
-  const finalUser = new Users(user);
+  const finalUser = new userModel(user);
 
   finalUser.setPassword(user.password);
 
-  return finalUser.save()
-    .then(() => res.json({ user: finalUser.toAuthJSON() }));
+
+  mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true})
+  const connection = mongoose.connection
+  connection.once("open", function(){
+    try {
+      connection.db.collection('users').insertOne(finalUser)
+      res.status(201).json(finalUser)
+    } catch (err){
+      console.log(err.message)
+      res.status(400).json({message: err.message})
+    }
+  })
 
 });
 
@@ -65,6 +83,6 @@ router.post('/login', auth.optional, (req, res, next) => {
     }
     return res.json({user: user.toAuthJSON() });
   })
-
 })
 
+module.exports = router

@@ -6,8 +6,8 @@ const tweetsRouter = require('./tweet/tweet.router')
 const userRouter = require('./user/user.router')
 const dotenv = require('dotenv')
 
+require('./user/user.model')
 const tweetModel = require('./tweet/tweets.model.js')
-const userModel = require('./user/user.model.js')
 const passportConfig = require('./config/passport')
 
 // Import and Set Nuxt.js options
