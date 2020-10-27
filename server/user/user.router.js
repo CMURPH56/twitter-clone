@@ -42,12 +42,15 @@ router.post('/', auth.optional, (req, res, next) => {
   connection.once("open", function(){
     try {
       connection.db.collection('users').insertOne(finalUser)
-      res.status(201).json(finalUser)
+      return res.status(201).json(finalUser.toAuthJSON())
     } catch (err){
       console.log(err.message)
-      res.status(400).json({message: err.message})
+      return res.status(400).json({message: err.message})
     }
   })
+
+  // return finalUser.save()
+  // .then(() => res.json({ user: finalUser.toAuthJSON() }));
 
 });
 

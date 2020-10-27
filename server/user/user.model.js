@@ -21,6 +21,7 @@ UsersSchema.methods.validatePassword = function(password) {
 }
 
 UsersSchema.methods.generateJWT = function() {
+  console.log('generate jwt called')
   const today = new Date();
   const expirationDate = new Date(today);
   expirationDate.setDate(today.getDate() + 60)
@@ -33,6 +34,7 @@ UsersSchema.methods.generateJWT = function() {
 }
 
 UsersSchema.methods.toAuthJSON = function() {
+  console.log('to auth json called')
   return {
     _id: this._id,
     email: this.email,
