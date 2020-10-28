@@ -8,7 +8,7 @@ const userModel = require('./user.model')
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-  if(!user){
+  if(!req.body){
     return res.status(422).json({
       errors: {
         empty: ' nothing here ',
@@ -16,7 +16,7 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.email){
+  if(!req.body.email){
     return res.status(422).json({
       errors: {
         email: 'is required',
@@ -24,7 +24,8 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+
+  if(!req.body.password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
@@ -32,9 +33,10 @@ router.post('/', auth.optional, (req, res, next) => {
     })
   }
 
+
   const finalUser = new userModel(user);
 
-  finalUser.setPassword(user.password);
+  finalUser.setPassword(req.body.password);
 
 
   mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true})

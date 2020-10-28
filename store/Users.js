@@ -3,8 +3,8 @@ import axios from 'axios'
 export const actions = {
  
     retrieveToken(context, credentials){
-      axios.post('/api/login', {
-        username: credentials.username,
+      axios.post('/api/auth/', {
+        email: credentials.username,
         password: credentials.password
       })
       .then( response => {
