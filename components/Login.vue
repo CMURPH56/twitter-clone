@@ -14,6 +14,9 @@
             <button type="submit" class="btn-submit">Login</button>
           </div>
       </form>
+      <div>
+        <router-link to="Register" tag="button"> Register </router-link>
+      </div>
 </section>
 </template>
 <script>
