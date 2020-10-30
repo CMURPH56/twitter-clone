@@ -1,24 +1,20 @@
 <template>
-  <section>
-      <h2> LOGIN </h2>
+  <section class="login">
+      <h2 class="login__header"> Log in to Twitter </h2>
       <form action="#" @submit.prevent="login">
-          <div class="form-control">
-            <label for="email"> UserName/Email </label>
-            <input type="email" name="username" id="username" class="login-input" v-model="username">
+          <div>
+            <input class="login__input" type="email" placeholder="Email" name="username" id="username" v-model="username">
           </div>
           <div class="form-control mb-more">
-            <label for="password"> Password </label>
-            <input type="password" name="password" id="password" class="login-input" v-model="password">
+            <input class="login__input" type="password" placeholder="password" name="password" id="Password" v-model="password">
           </div>
-          <div class="form-control">
-            <button type="submit" class="btn-submit">Login</button>
+          <div>
+            <button class="login__button" type="submit">Login</button>
           </div>
       </form>
-      <div>
-        <router-link to="Register" tag="button"> Register </router-link>
-      </div>
 </section>
 </template>
+
 <script>
   import axios from "axios"
   export default {
@@ -40,3 +36,29 @@
       }
   }
 </script>
+
+
+<style lang="scss" scoped>
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__header{
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__button{
+    width: 100%;
+    background-color: lightblue;
+  }
+  &__input{
+    margin-bottom:1rem;
+  }
+
+}
+
+</style>
