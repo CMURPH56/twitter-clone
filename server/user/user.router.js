@@ -8,7 +8,6 @@ const userModel = require('./user.model')
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-  console.log('before user')
   if(!user){
     return res.status(422).json({
       errors: {
@@ -17,8 +16,15 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  console.log('past user ')
+  if(!user.username){
+    return res.status(422).json({
+      errors: {
+        username: 'is required',
+      },
+    });
+  }
 
+  
   if(!user.email){
     return res.status(422).json({
       errors: {
@@ -26,8 +32,6 @@ router.post('/', auth.optional, (req, res, next) => {
       },
     });
   }
-
-  console.log(' past email ')
 
   if(!user.password) {
     return res.status(422).json({
@@ -37,7 +41,6 @@ router.post('/', auth.optional, (req, res, next) => {
     })
   }
 
-  console.log('past password')
 
   const finalUser = new userModel(user);
 

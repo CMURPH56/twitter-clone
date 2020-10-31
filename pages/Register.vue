@@ -9,7 +9,7 @@
           <input class="login__input" type="text" placeholder="User Handle" name="username" id="username" v-model="username">
         </div>
         <div class="form-control mb-more">
-          <input class="login__input" type="password" placeholder="password" name="password" id="Password" v-model="password">
+          <input class="login__input" type="password" placeholder="Password" name="password" id="Password" v-model="password">
         </div>
         <div>
           <button class="login__button" type="submit">Sign Up</button>
@@ -27,6 +27,15 @@
           email: '',
           username: '',
           password: ''
+        }
+      },
+      methods: {
+        login() {
+          this.$store.dispatch('Users/retrieveToken', {
+            email: this.email,
+            username: this.username,
+            password: this.password
+          })
         }
       }
   }

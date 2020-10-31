@@ -6,6 +6,7 @@ export const actions = {
       axios.post('/api/auth/', {
         user: {
           email: credentials.email,
+          username: credentials.username,
           password: credentials.password
         }
       })
