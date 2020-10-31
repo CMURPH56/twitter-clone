@@ -12,6 +12,11 @@
             <button class="login__button" type="submit">Login</button>
           </div>
       </form>
+      <div class="login__links">
+        <router-link class="login__link--first" to="Register">Sign up for Twitter</router-link>
+        <span class="login__bullet">  - </span>
+        <router-link class="login__link" to="Register">Forgot Password</router-link>
+      </div>
   </section>
 </template>
 
@@ -44,21 +49,31 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: system-ui;
 
-  &__header{
+  &__header {
     color: black;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
-  &__button{
+  &__button {
     width: 100%;
-    background-color: lightblue;
   }
+
+
   &__input{
     margin-bottom:1rem;
   }
 
+  &__links {
+    margin-top: 2rem;
+  }
+
+  &__link {
+    margin-top: 1rem;
+    color:rgb(27, 149, 224);
+  }
 }
 
 </style>
