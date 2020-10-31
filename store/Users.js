@@ -5,7 +5,7 @@ export const actions = {
     retrieveToken(context, credentials){
       axios.post('/api/auth/', {
         user: {
-          email: credentials.username,
+          email: credentials.email,
           password: credentials.password
         }
       })

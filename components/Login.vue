@@ -3,7 +3,7 @@
       <h2 class="login__header"> Log in to Twitter </h2>
       <form action="#" @submit.prevent="login">
           <div>
-            <input class="login__input" type="email" placeholder="Email" name="username" id="username" v-model="username">
+            <input class="login__input" type="email" placeholder="Email" name="username" id="email" v-model="email">
           </div>
           <div class="form-control mb-more">
             <input class="login__input" type="password" placeholder="password" name="password" id="Password" v-model="password">
@@ -12,7 +12,7 @@
             <button class="login__button" type="submit">Login</button>
           </div>
       </form>
-</section>
+  </section>
 </template>
 
 <script>
@@ -22,14 +22,14 @@
             
       data() {
         return {
-          username: '',
+          email: '',
           password: ''
         }
       },
       methods: {
         login() {
           this.$store.dispatch('Users/retrieveToken', {
-            username: this.username,
+            email: this.email,
             password: this.password
           })
         }
