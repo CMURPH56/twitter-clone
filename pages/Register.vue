@@ -15,6 +15,7 @@
           <button class="login__button" type="submit">Sign Up</button>
         </div>
     </form>
+    <h1> welcome {{userName}}</h1>
   </section>
 </template>
 
@@ -26,16 +27,24 @@
         return {
           email: '',
           username: '',
-          password: ''
+          password: '',
+        }
+      },
+      computed: {
+        userData() {
+          return this.$store.state.Users.result
+        },
+        userName(){
+          return this.$store.state.Users.result.username
         }
       },
       methods: {
         login() {
-          this.$store.dispatch('Users/retrieveToken', {
+           this.$store.dispatch('Users/retrieveToken', {
             email: this.email,
             username: this.username,
             password: this.password
-          })
+          });
         }
       }
   }

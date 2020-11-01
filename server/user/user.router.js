@@ -51,6 +51,7 @@ router.post('/', auth.optional, (req, res, next) => {
   const connection = mongoose.connection
   connection.once("open", function(){
     try {
+      
       connection.db.collection('users').insertOne(finalUser)
       return res.status(201).json(finalUser.toAuthJSON())
     } catch (err){
