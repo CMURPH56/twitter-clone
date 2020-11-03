@@ -36,15 +36,23 @@
         },
         userName(){
           return this.$store.state.Users.result.username
+        },
+        requestStatus(){
+          return this.$store.state.Users.status
         }
+
       },
       methods: {
         login() {
-           this.$store.dispatch('Users/retrieveToken', {
-            email: this.email,
-            username: this.username,
-            password: this.password
-          });
+           axios.post('/api/auth/', {
+            user: {
+              email: this.email,
+              username: this.username,
+              password: this.password
+            }
+          }).then((response) =>
+            console.log(response)
+          )
         }
       }
   }

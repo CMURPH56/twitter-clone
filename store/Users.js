@@ -1,12 +1,16 @@
 import axios from 'axios'
 
 export const state =  () => ({
-  result: ''
+  result: '',
+  status: ''
 })
 
 export const mutations = {
   set_result(state, result) {
     state.result = result;
+  },
+  set_status(state, result) {
+    state.staus = result
   }
 }
 
@@ -23,6 +27,7 @@ export const actions = {
       .then((response) => {
         console.log(response)
         commit('set_result', response.data)
+        commit('set_status', response.status)
       })
     }
 
