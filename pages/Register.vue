@@ -51,8 +51,15 @@
               password: this.password
             }
           }).then((response) =>
-            console.log(response)
-          )
+            this.loginSuccessful(response)
+          ).catch(() => this.loginFailed())
+        },
+        loginSuccessful(res){
+          if(!res.data.token){
+            console.log('no token')
+          }
+          localStorage.token = res.data.token
+          this.$router.replace('/home')
         }
       }
   }
