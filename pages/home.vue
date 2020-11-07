@@ -33,11 +33,19 @@ import { mapState } from 'vuex'
 export default {
   created() {
       this.$store.dispatch('Tweets/get_results')
+      this.checkLoggedIn()
     },
 
   computed : {
     storedTweets() {
       return this.$store.state.Tweets.results
+    }
+  },
+  methods: {
+    checkLoggedIn() {
+      if( localStorage && localStorage.token){
+        alert('we have user')
+      }
     }
   },
   components: {
