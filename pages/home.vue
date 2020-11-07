@@ -43,8 +43,11 @@ export default {
   },
   methods: {
     checkLoggedIn() {
-      if( localStorage && localStorage.token){
-        alert('we have user')
+      var test = localStorage.getItem('token')
+      if (test == ''){
+        console.log('empty')
+      } else {
+        console.log('token boii')
       }
     }
   },
