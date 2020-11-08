@@ -20,6 +20,10 @@ module.exports = {
     port: 8000, // default: 3000
     host: '0.0.0.0' // default: localhost
   },
+
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Customize the progress-bar color
   */
@@ -43,7 +47,8 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    '@nuxtjs/axios'
   ],
   /*
   ** Build configuration
