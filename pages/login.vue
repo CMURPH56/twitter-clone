@@ -33,7 +33,7 @@
       },
       methods: {
         login() {
-          console.log('login called;')
+          console.log('login called')
           axios.post('/api/auth/login', {
             user: {
               email: this.email,

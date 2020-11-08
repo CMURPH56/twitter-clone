@@ -88,11 +88,14 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
+  console.log('under user password and email')
+
   return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
+    console.log('inside return statement')
+    
     if(err) {
       return next(err)
     }
-
     if(passportUser) {
       const user = passportUser;
       user.token = passportUser.generateJWT();
