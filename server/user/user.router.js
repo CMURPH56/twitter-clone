@@ -5,9 +5,10 @@ const auth = require('../auth/auth')
 const userModel = require('./user.model')
 
 
-router.post('/', auth.optional, (req, res, next) => {
+router.post('/create', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
+  console.log('test')
   if(!user){
     return res.status(422).json({
       errors: {
@@ -66,6 +67,9 @@ router.post('/', auth.optional, (req, res, next) => {
 });
 
 router.post('/login', auth.optional, (req, res, next) => {
+  
+  console.log('login post request called')
+  
   const { body: { user } } = req;
 
   if(!user.email){

@@ -15,7 +15,6 @@
           <button class="login__button" type="submit">Sign Up</button>
         </div>
     </form>
-    <h1> welcome {{userName}}</h1>
   </section>
 </template>
 
@@ -45,7 +44,7 @@
       },
       methods: {
         login() {
-           axios.post('/api/auth/', {
+           axios.post('/api/auth/create', {
             user: {
               email: this.email,
               username: this.username,
