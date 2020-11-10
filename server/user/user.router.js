@@ -68,8 +68,6 @@ router.post('/create', auth.optional, (req, res, next) => {
 
 router.post('/login', auth.optional, (req, res, next) => {
   
-  console.log('login post request called')
-  
   const { body: { user } } = req;
 
   if(!user.email){
@@ -88,11 +86,9 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  console.log('under user password and email')
-
+  console.log('before authenication function is called')
+  console.log('todo figure out why this is failing')
   return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
-    console.log('inside return statement')
-    
     if(err) {
       return next(err)
     }
@@ -100,10 +96,10 @@ router.post('/login', auth.optional, (req, res, next) => {
       const user = passportUser;
       user.token = passportUser.generateJWT();
 
-      return res.json({user: user.toAuthJSON})
+      return res.json({user: user.toAuthJSON()})
     }
-    return res.json({user: user.toAuthJSON() });
-  })
-})
+    return res.status(400).info;
+  })(req, res, next)
+});
 
 module.exports = router

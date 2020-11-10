@@ -1,13 +1,15 @@
 const mongoose = require('mongoose')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
-
 const userModel = require('../user/user.model')
+
+
 
 passport.use(new LocalStrategy({
   usernameField: 'user[email]',
   passwordField: 'user[password]'
 }, (email, password, done) => {
+  console.log('inside passport use function')
   userModel.findOne({ email})
     .then((user) => {
       if(!user || !user.validatePassword(password)) {
