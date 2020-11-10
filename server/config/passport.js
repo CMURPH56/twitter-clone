@@ -5,6 +5,7 @@ const userModel = require('../user/user.model')
 
 
 // TODO: Debug this to get the proper user
+// Fails because user.validatePassword is not a function
 passport.use(new LocalStrategy({
   usernameField: 'user[email]',
   passwordField: 'user[password]'
