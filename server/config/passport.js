@@ -16,10 +16,13 @@ passport.use(new LocalStrategy({
   connection.once("open", function(){
   connection.db.collection('users').findOne({email})
     .then((user) => {
-      if(!user || !user.validatePassword(password)) {
+      var formattedUser = new userModel(user);
+      console.log(formattedUser)
+      if(!formattedUser || !formattedUser.validatePassword(password)) {
+        console.log('inside if statement')
         return done(null, false, {errors: {'email or password': 'is invalid'}});
       }
-      return done(null,user)
+      return done(null,formattedUser)
     }).catch(done);
   })
 }));
