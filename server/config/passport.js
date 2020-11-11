@@ -19,7 +19,6 @@ passport.use(new LocalStrategy({
       var formattedUser = new userModel(user);
       console.log(formattedUser)
       if(!formattedUser || !formattedUser.validatePassword(password)) {
-        console.log('inside if statement')
         return done(null, false, {errors: {'email or password': 'is invalid'}});
       }
       return done(null,formattedUser)

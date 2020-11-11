@@ -86,18 +86,21 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  console.log('before authenication function is called')
-  console.log('todo figure out why this is failing')
   return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
+    console.log('inside return statement')
     if(err) {
+      console.log('error')
       return next(err)
     }
+    console.log(passportUser)
+    console.log('testing')
     if(passportUser) {
+      console.log('inside return if')
       const user = passportUser;
       user.token = passportUser.generateJWT();
-
       return res.json({user: user.toAuthJSON()})
     }
+    console.log('after if')
     return res.status(400).info;
   })(req, res, next)
 });
