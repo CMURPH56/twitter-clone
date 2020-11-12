@@ -39,8 +39,14 @@
               email: this.email,
               password: this.password,
             }
-          }).then((response) =>
-          console.log(response))
+          }).then((response) => {
+          
+          console.log(response)
+          if(response.status == 200){
+            localStorage.token = response.data.user.token
+            this.$router.replace("/")
+          }
+          })
         }
       }
   }
