@@ -40,7 +40,7 @@
               password: this.password,
             }
           }).then((response) =>
-          console.log('test'))
+          console.log(response))
         }
       }
   }

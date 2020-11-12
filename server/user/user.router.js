@@ -104,5 +104,4 @@ router.post('/login', auth.optional, (req, res, next) => {
     return res.status(400).info;
   })(req, res, next)
 });
-
 module.exports = router
