@@ -45,7 +45,7 @@
               console.log(response.status)
               console.log('user exists')
               localStorage.token = response.data.user.token
-              this.$auth.setUser({})
+              this.$auth.setUser(response.data.user)
               this.$router.push('/')
             } else {
               console.log(response.status)              

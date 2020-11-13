@@ -33,22 +33,11 @@ import { mapState } from 'vuex'
 export default { 
   created() {
       this.$store.dispatch('Tweets/get_results')
-      this.checkLoggedIn()
     },
 
   computed : {
     storedTweets() {
       return this.$store.state.Tweets.results
-    }
-  },
-  methods: {
-    checkLoggedIn() {
-      var test = localStorage.getItem('token')
-      if (test == ''){
-        console.log('empty')
-      } else {
-        console.log('token boii')
-      }
     }
   },
   components: {
