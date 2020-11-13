@@ -30,7 +30,7 @@ import Trending from '~/components/Trending.vue'
 import { mapState } from 'vuex'
 
 
-export default {
+export default { 
   created() {
       this.$store.dispatch('Tweets/get_results')
       this.checkLoggedIn()

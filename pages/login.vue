@@ -40,12 +40,17 @@
               password: this.password,
             }
           }).then((response) => {
-          
-          console.log(response)
-          if(response.status == 200){
-            localStorage.token = response.data.user.token
-            this.$router.replace("/")
-          }
+            console.log(response)
+            if (response.status == 200) {
+              console.log(response.status)
+              console.log('user exists')
+              localStorage.token = response.data.user.token
+              this.$auth.setUser({})
+              this.$router.push('/')
+            } else {
+              console.log(response.status)              
+              console.log('no user')
+            }
           })
         }
       }

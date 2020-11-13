@@ -59,7 +59,7 @@
             console.log('no token')
           }
           localStorage.token = res.data.token
-          this.$router.replace('/')
+          this.$router.push('/')
         }
       }
   }
