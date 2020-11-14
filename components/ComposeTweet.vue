@@ -40,6 +40,10 @@
        tweetStatus: ''
      }
    },
+
+   mounted(){
+     console.log(localStorage.token)
+   },
    computed: {
 
      getFormattedDate() {
