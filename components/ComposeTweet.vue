@@ -29,8 +29,8 @@
      return {
        newTweet: {
         id: Date.now(),
-        user: "cam",
-        handle: "@cam",
+        user:  this.$auth.user.username,
+        handle: '@' + this.$auth.user.username,
         message: '',
         liked: false,
         comments: [],
@@ -43,6 +43,7 @@
 
    mounted(){
      console.log(localStorage.token)
+     console.log(this.$auth.user)
    },
    computed: {
 

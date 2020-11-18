@@ -8,7 +8,6 @@ const userModel = require('./user.model')
 router.post('/create', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-  console.log('test')
   if(!user){
     return res.status(422).json({
       errors: {
@@ -42,7 +41,6 @@ router.post('/create', auth.optional, (req, res, next) => {
     })
   }
 
-
   const finalUser = new userModel(user);
 
   finalUser.setPassword(user.password);
@@ -60,10 +58,6 @@ router.post('/create', auth.optional, (req, res, next) => {
       return res.status(400).json({message: err.message})
     }
   })
-
-  // return finalUser.save()
-  // .then(() => res.json({ user: finalUser.toAuthJSON() }));
-
 });
 
 router.post('/login', auth.optional, (req, res, next) => {
