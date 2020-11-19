@@ -24,12 +24,20 @@
   import axios from "axios"
   export default {
     name: 'login',
-            
       data() {
         return {
           email: '',
           password: ''
         }
+      },
+
+      mounted(){
+        console.log('tests')
+        console.log(this.$auth.user)
+        if(this.$auth.user){{
+          console.log('in here')
+          this.$router.push('/')
+        }}
       },
       methods: {
         login() {

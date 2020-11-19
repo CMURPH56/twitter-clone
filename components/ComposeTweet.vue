@@ -83,7 +83,7 @@
  }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .tweetInputModule{
   height: 17vh;
   width: 100%;
