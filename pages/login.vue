@@ -30,15 +30,6 @@
           password: ''
         }
       },
-
-      mounted(){
-        console.log('tests')
-        console.log(this.$auth.user)
-        if(this.$auth.user){{
-          console.log('in here')
-          this.$router.push('/')
-        }}
-      },
       methods: {
         login() {
           console.log('login called')
