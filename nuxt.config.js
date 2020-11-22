@@ -24,6 +24,17 @@ module.exports = {
   router: {
     middleware: ['auth']
   },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token'}
+        }
+      }
+    }
+  },
+
   /*
   ** Customize the progress-bar color
   */

@@ -61,6 +61,10 @@ router.post('/create', auth.optional, (req, res, next) => {
 });
 
 router.post('/login', auth.optional, (req, res, next) => {
+
+
+  console.log('testing')
+  console.log(req.body)
   
   const { body: { user } } = req;
 

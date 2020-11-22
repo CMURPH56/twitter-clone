@@ -32,23 +32,36 @@
       },
       methods: {
         login() {
-          console.log('login called')
-          axios.post('/api/auth/login', {
+
+          var user = {
+            email: this.email,
+            password: this.password
+          }
+          console.log(user)
+          this.$auth.loginWith('local', {
             user: {
               email: this.email,
-              password: this.password,
+              password: this.password
             }
-          }).then((response) => {
-            console.log(response)
-            if (response.status == 200) {
-              localStorage.token = response.data.user.token
-              this.$auth.setUser(response.data.user)
-              this.$router.push('/')
-            } else {
-              console.log(response.status)              
-              console.log('no user')
-            }
-          })
+          });
+          // console.log('login called')
+          // axios.post('/api/auth/login', {
+          //   user: {
+          //     email: this.email,
+          //     password: this.password,
+          //   }
+          // }).then((response) => {
+          //   console.log(response)
+          //   if (response.status == 200) {
+          //     localStorage.token = response.data.user.token
+          //     this.$auth.setUser(response.data.user)
+          //     req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000;
+          //     this.$router.push('/')
+          //   } else {
+          //     console.log(response.status)              
+          //     console.log('no user')
+          //   }
+          // })
         }
       }
   }
