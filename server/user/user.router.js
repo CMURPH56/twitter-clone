@@ -6,7 +6,10 @@ const userModel = require('./user.model')
 
 
 router.post('/create', auth.optional, (req, res, next) => {
+
+
   const { body: { user } } = req;
+
 
   if(!user){
     return res.status(422).json({
@@ -62,8 +65,6 @@ router.post('/create', auth.optional, (req, res, next) => {
 
 router.post('/login', auth.optional, (req, res, next) => {
 
-
-  console.log('testing')
   console.log(req.body)
   
   const { body: { user } } = req;

@@ -32,18 +32,14 @@
       },
       methods: {
         login() {
-
-          var user = {
-            email: this.email,
-            password: this.password
-          }
-          console.log(user)
           this.$auth.loginWith('local', {
-            user: {
-              email: this.email,
-              password: this.password
+            data: {
+              user: {
+                email: this.email,
+                password: this.password
+              }
             }
-          });
+          })
           // console.log('login called')
           // axios.post('/api/auth/login', {
           //   user: {
